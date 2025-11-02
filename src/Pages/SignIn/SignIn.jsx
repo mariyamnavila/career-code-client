@@ -1,20 +1,18 @@
-import Lottie from "lottie-react";
-import { Link } from "react-router-dom";
-import registerLottie from '../../assets/lotties/register.json';
 import { use } from "react";
 import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
+import signInLottie from '../../assets/lotties/SignIn.json';
+import Lottie from "lottie-react";
 
-const Register = () => {
+const SignIn = () => {
+    const { signInUser } = use(AuthContext)
 
-    const { createUser } = use(AuthContext)
-
-    const handleRegister = (e) => {
+    const handleSignIn = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value
         const password = form.password.value
 
-        createUser(email, password)
+        signInUser(email, password)
             .then(res =>
                 console.log(res)
             )
@@ -27,14 +25,14 @@ const Register = () => {
         <div className="flex justify-center items-center min-h-screen my-8">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
-                    <Lottie style={{ width: '200px' }} animationData={registerLottie} loop={true}></Lottie>
+                    <Lottie style={{ width: '200px' }} animationData={signInLottie} loop={true}></Lottie>
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
                     <div>
-                        <p className="font-medium text-xs text-center mb-3 text-secondary">Register </p>
+                        <p className="font-medium text-xs text-center mb-3 text-secondary">Sign In </p>
                         <h2 className="font-semibold text-3xl text-center mx-5 text-">Start for from Today</h2>
                         <form
-                            onSubmit={handleRegister}
+                            onSubmit={handleSignIn}
                             className="card-body">
                             {/* <button onClick={() => { handleGoogleSignIn(googleProvider) }} className="btn w-full bg-success text-primary flex items-center"><FcGoogle />  Login with Google</button> */}
                             {/* <div className="divider text-xs">Or continue with </div> */}
@@ -81,8 +79,8 @@ const Register = () => {
                                 {/* {
                                 error && <p className="text-red-500 text-xs">{error}</p>
                             } */}
-                                <button className="btn btn-primary text-white mr-2 mt-3" type="submit">Register</button>
-                                <p className="font-semibold text-center pt-4">Already Have An Account ? <Link to={'/login'} className="text-primary">Login</Link></p>
+                                <button className="btn btn-primary text-white mr-2 mt-3" type="submit">Sign In</button>
+                                <p className="font-semibold text-center pt-4">Already Have An Account ? <Link to={'/register'} className="text-primary">Register</Link></p>
                             </fieldset>
                         </form>
                     </div>
@@ -93,4 +91,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default SignIn;
