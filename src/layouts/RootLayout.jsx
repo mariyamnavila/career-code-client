@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../Pages/Home/Shared/Navbar";
-import Footer from "../Pages/Home/Shared/Footer";
+import Navbar from "../Pages/Shared/Navbar";
+import Footer from "../Pages/Shared/Footer";
 
 
 const RootLayout = () => {
     return (
-        <div>
+        <div className="max-w-7xl mx-auto">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

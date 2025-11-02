@@ -2,9 +2,10 @@ import { use } from "react";
 import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
 import signInLottie from '../../assets/lotties/SignIn.json';
 import Lottie from "lottie-react";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
-    const { signInUser } = use(AuthContext)
+    const { signInUser, signInWithGoogle } = use(AuthContext)
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -16,6 +17,16 @@ const SignIn = () => {
             .then(res =>
                 console.log(res)
             )
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(res => {
+                console.log(res);
+            })
             .catch(error => {
                 console.log(error);
             })
@@ -34,10 +45,10 @@ const SignIn = () => {
                         <form
                             onSubmit={handleSignIn}
                             className="card-body">
-                            {/* <button onClick={() => { handleGoogleSignIn(googleProvider) }} className="btn w-full bg-success text-primary flex items-center"><FcGoogle />  Login with Google</button> */}
-                            {/* <div className="divider text-xs">Or continue with </div> */}
+                            <button onClick={() => { handleGoogleSignIn(googleProvider) }} className="btn w-full bg-success text-primary flex items-center"><FcGoogle />  Login with Google</button>
+                            <div className="divider text-xs">Or continue with </div>
                             <fieldset className="fieldset">
-                                {/* Name */}
+                                {/*  Name */}
                                 {/* <label className="label font-bold text-base-200">Name</label>
                                 <input
                                     name='name'

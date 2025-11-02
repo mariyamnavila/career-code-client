@@ -36,8 +36,8 @@ const Register = () => {
                         <form
                             onSubmit={handleRegister}
                             className="card-body">
-                            {/* <button onClick={() => { handleGoogleSignIn(googleProvider) }} className="btn w-full bg-success text-primary flex items-center"><FcGoogle />  Login with Google</button> */}
-                            {/* <div className="divider text-xs">Or continue with </div> */}
+                            <button onClick={() => { handleGoogleSignIn(googleProvider) }} className="btn w-full bg-success text-primary flex items-center"><FcGoogle />  Login with Google</button> */}
+                             <div className="divider text-xs">Or continue with </div>
                             <fieldset className="fieldset">
                                 {/* Name */}
                                 {/* <label className="label font-bold text-base-200">Name</label>
