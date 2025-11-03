@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import registerLottie from '../../assets/lotties/register.json';
 import { use } from "react";
 import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
@@ -8,6 +8,10 @@ const Register = () => {
 
     const { createUser, signInWithGoogle } = use(AuthContext)
 
+    const location = useLocation()
+    const navigate = useNavigate();
+    const from = location.state || '/'
+
     const handleRegister = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -15,9 +19,10 @@ const Register = () => {
         const password = form.password.value
 
         createUser(email, password)
-            .then(res =>
-                console.log(res)
-            )
+            .then(res => {
+                console.log(res);
+                navigate(from)
+            })
             .catch(error => {
                 console.log(error);
             })
@@ -27,6 +32,7 @@ const Register = () => {
         signInWithGoogle()
             .then(res => {
                 console.log(res);
+                navigate(from)
             })
             .catch(error => {
                 console.log(error);

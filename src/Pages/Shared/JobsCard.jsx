@@ -3,7 +3,17 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const JobsCard = ({ job }) => {
-    const {_id, title, location, requirements, jobType, category, salaryRange, description, company, company_logo } = job
+    const { _id,
+        title,
+        location,
+        requirements,
+        jobType,
+        // category,
+        salaryRange,
+        description,
+        company,
+        company_logo 
+    } = job
     return (
         <div>
             <div className="card bg-base-100 w-96 shadow-sm">
