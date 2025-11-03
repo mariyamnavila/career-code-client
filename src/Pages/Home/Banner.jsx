@@ -1,7 +1,6 @@
 import { motion } from "motion/react"
 import team1 from '../../assets/team/hero1.jpg';
 import team2 from '../../assets/team/hero-2.jpg';
-import { delay } from "motion";
 const Banner = () => {
     return (
         <div>
@@ -36,7 +35,7 @@ const Banner = () => {
                             }} className="text-5xl font-bold">
                             Remote <motion.span
                                 animate={{
-                                    color: ['#ff5733', '#33ff33', '#8a33ff'],
+                                    color: ['#ff5733', '#33ff33', '#8a33ff','#ff5733'],
                                     transition: { duration: 3, repeat: Infinity }
                                 }}
                             >Jobs </motion.span>

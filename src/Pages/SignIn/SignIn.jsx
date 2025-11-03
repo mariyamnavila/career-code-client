@@ -45,7 +45,7 @@ const SignIn = () => {
                         <form
                             onSubmit={handleSignIn}
                             className="card-body">
-                            <button onClick={() => { handleGoogleSignIn(googleProvider) }} className="btn w-full bg-success text-primary flex items-center"><FcGoogle />  Login with Google</button>
+                            <button onClick={() => { handleGoogleSignIn() }} className="btn w-full bg-success text-primary flex items-center"><FcGoogle />  Login with Google</button>
                             <div className="divider text-xs">Or continue with </div>
                             <fieldset className="fieldset">
                                 {/*  Name */}

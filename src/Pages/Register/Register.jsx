@@ -6,7 +6,7 @@ import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
 
 const Register = () => {
 
-    const { createUser } = use(AuthContext)
+    const { createUser, signInWithGoogle } = use(AuthContext)
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -18,6 +18,16 @@ const Register = () => {
             .then(res =>
                 console.log(res)
             )
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(res => {
+                console.log(res);
+            })
             .catch(error => {
                 console.log(error);
             })
@@ -36,8 +46,8 @@ const Register = () => {
                         <form
                             onSubmit={handleRegister}
                             className="card-body">
-                            <button onClick={() => { handleGoogleSignIn(googleProvider) }} className="btn w-full bg-success text-primary flex items-center"><FcGoogle />  Login with Google</button> */}
-                             <div className="divider text-xs">Or continue with </div>
+                            <button onClick={() => { handleGoogleSignIn() }} className="btn w-full bg-success text-primary flex items-center"><FcGoogle />  Login with Google</button>
+                            <div className="divider text-xs">Or continue with </div>
                             <fieldset className="fieldset">
                                 {/* Name */}
                                 {/* <label className="label font-bold text-base-200">Name</label>
