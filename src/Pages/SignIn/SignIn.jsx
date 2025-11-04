@@ -3,6 +3,7 @@ import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
 import signInLottie from '../../assets/lotties/SignIn.json';
 import Lottie from "lottie-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 const SignIn = () => {
     const { signInUser, signInWithGoogle } = use(AuthContext)
@@ -50,7 +51,7 @@ const SignIn = () => {
                         <form
                             onSubmit={handleSignIn}
                             className="card-body">
-                            <button onClick={() => { handleGoogleSignIn() }} className="btn w-full bg-success text-primary flex items-center"><FcGoogle />  Login with Google</button>
+                            <button onClick={() => { handleGoogleSignIn() }} className="btn w-full flex items-center"><FcGoogle />  Login with Google</button>
                             <div className="divider text-xs">Or continue with </div>
                             <fieldset className="fieldset">
                                 {/*  Name */}

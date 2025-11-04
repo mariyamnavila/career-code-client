@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import registerLottie from '../../assets/lotties/register.json';
 import { use } from "react";
 import { AuthContext } from "../../Contexts/AuthContexts/AuthContext";
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
 
@@ -52,7 +53,7 @@ const Register = () => {
                         <form
                             onSubmit={handleRegister}
                             className="card-body">
-                            <button onClick={() => { handleGoogleSignIn() }} className="btn w-full bg-success text-primary flex items-center"><FcGoogle />  Login with Google</button>
+                            <button onClick={() => { handleGoogleSignIn() }} className="btn w-full flex items-center"><FcGoogle />  Login with Google</button>
                             <div className="divider text-xs">Or continue with </div>
                             <fieldset className="fieldset">
                                 {/* Name */}
