@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const JobLists = ({ jobsCreatedByPromise }) => {
     const jobs = use(jobsCreatedByPromise)
+
     return (
         <div>
             <h2 className="text-3xl">Jobs Created By you:{jobs.length} </h2>
@@ -25,7 +26,11 @@ const JobLists = ({ jobsCreatedByPromise }) => {
                                     <th>{i + 1}</th>
                                     <td>{job.title}</td>
                                     <td>{job.applicationDeadline}</td>
-                                    <td><Link to={`/applications/${job._id}`}>{ }</Link></td>
+                                    <td><Link to={`/applications/${job._id}`} className="btn"> {
+                                        localStorage.getItem(`job_id-${job._id}`)
+                                            ? localStorage.getItem(`job_id-${job._id}`)
+                                            : 0
+                                    } person viewed</Link></td>
                                 </tr>
                             )
                         }
